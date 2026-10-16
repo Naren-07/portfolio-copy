@@ -22,10 +22,10 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
         return (
           <div
             key={idx}
-            className={`rounded-xl border transition-all duration-300 overflow-hidden ${
+            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
               isOpen
-                ? "bg-[#1D1417]/90 border-[#D9967F]/40 shadow-glow"
-                : "bg-[#140E10]/60 border-[rgba(232,180,160,0.15)] hover:border-[rgba(232,180,160,0.3)]"
+                ? "glass-card border-[#0D0D0E] shadow-[0_12px_32px_-10px_rgba(90,65,10,0.22)]"
+                : "bg-[rgba(255,248,225,0.55)] border-[rgba(168,126,26,0.3)] hover:border-[#0D0D0E] backdrop-blur-md"
             }`}
           >
             <button
@@ -33,21 +33,21 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
               className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 transition-colors"
               aria-expanded={isOpen}
             >
-              <span className="font-display text-lg sm:text-xl text-[#FBF3EE] font-medium">
+              <span className="font-display text-lg sm:text-xl text-[#0D0D0E] font-semibold">
                 {item.question}
               </span>
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center border transition-transform duration-300 shrink-0 ${
                   isOpen
-                    ? "rotate-180 bg-[#D9967F] text-[#0B0809] border-[#D9967F]"
-                    : "bg-transparent text-[#CDBBB3] border-[rgba(232,180,160,0.2)]"
+                    ? "rotate-180 bg-[#111113] text-[#F7E49A] border-[#111113]"
+                    : "bg-transparent text-[#0D0D0E] border-[rgba(17,17,19,0.3)]"
                 }`}
               >
                 <ChevronDown className="w-4 h-4" />
               </div>
             </button>
             {isOpen && (
-              <div className="px-6 pb-6 text-sm text-[#CDBBB3] leading-relaxed animate-in fade-in duration-200 border-t border-[rgba(232,180,160,0.08)] pt-4">
+              <div className="px-6 pb-6 text-sm text-[#242428] leading-relaxed animate-in fade-in duration-200 border-t border-[rgba(168,126,26,0.2)] pt-4 font-medium">
                 {item.answer}
               </div>
             )}

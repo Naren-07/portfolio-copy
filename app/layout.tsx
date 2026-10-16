@@ -71,7 +71,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${inter.variable} ${greatVibes.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="bg-[#0C0A07] text-[#FBF6EE] antialiased selection:bg-[#D4AF6A] selection:text-[#0C0A07]">
+      <body className="text-[#242428] antialiased selection:bg-[#111113] selection:text-[#F7E49A]">
         <div className="golden-ambient-aura" aria-hidden="true" />
         <div className="film-grain" aria-hidden="true" />
         <CanvasParticles />

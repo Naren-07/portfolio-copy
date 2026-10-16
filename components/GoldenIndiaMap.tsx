@@ -106,47 +106,47 @@ export default function GoldenIndiaMap() {
   const selectedHub = activeHub || hq;
 
   return (
-    <div className="w-full rounded-3xl bg-[#140F0A]/90 border border-[rgba(212,175,106,0.3)] shadow-[0_0_50px_rgba(212,175,106,0.12)] p-6 sm:p-10 relative overflow-hidden select-none">
+    <div className="w-full rounded-3xl glass-card border border-[rgba(168,126,26,0.38)] shadow-[0_16px_40px_rgba(90,65,10,0.18)] p-6 sm:p-10 relative overflow-hidden select-none">
       {/* Background golden lighting glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-[#D4AF6A]/15 via-[#F8E3B6]/10 to-transparent blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-[#FFF3C4]/30 via-[#DFB742]/15 to-transparent blur-[100px] pointer-events-none" />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         {/* Left Interactive Details Panel */}
         <div className="lg:col-span-5 flex flex-col justify-between h-full">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E1710] border border-[rgba(212,175,106,0.3)] mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#D4AF6A] animate-pulse" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#D4AF6A]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.7)] border border-[rgba(168,126,26,0.35)] mb-4 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#0D0D0E] font-semibold">
                 BHARAT VOICE NETWORK
               </span>
             </div>
 
-            <h3 className="font-display text-3xl sm:text-4xl text-[#FBF6EE] font-medium leading-tight mb-3">
+            <h3 className="font-display text-3xl sm:text-4xl text-[#0D0D0E] font-semibold leading-tight mb-3">
               India Linguistic Map
             </h3>
-            <p className="text-xs sm:text-sm text-[#D9CBBF] font-sans leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm text-[#242428] font-sans leading-relaxed mb-6 font-medium">
               9 major Indian linguistic territories recorded with native dialect accents, colloquial humor transcreation, and broadcast lip-sync.
             </p>
 
             {/* Selected Territory Spotlight Card */}
-            <div className="p-5 rounded-2xl bg-[#1E1710]/95 border border-[#D4AF6A]/50 shadow-glow mb-6 transition-all duration-300">
+            <div className="p-5 rounded-2xl bg-[rgba(255,255,255,0.85)] border-2 border-[#0D0D0E] shadow-[0_8px_24px_rgba(90,65,10,0.15)] mb-6 transition-all duration-300">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#D4AF6A]">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#5A410A] font-bold">
                   {selectedHub.isHQ ? "National Production HQ" : "Regional Recording Hub"}
                 </span>
-                <span className="text-xs font-mono text-[#D4AF6A] px-2.5 py-0.5 rounded-full bg-[#0C0A07] border border-[#D4AF6A]/30">
+                <span className="text-xs font-mono text-[#F7E49A] px-2.5 py-0.5 rounded-full bg-[#111113] font-semibold">
                   {selectedHub.artists}
                 </span>
               </div>
               <div className="flex items-baseline gap-3 mb-1">
-                <span className="font-display text-2xl text-[#FBF6EE] font-semibold">
+                <span className="font-display text-2xl text-[#0D0D0E] font-bold">
                   {selectedHub.name}
                 </span>
-                <span className="font-serif text-lg text-[#F8E3B6]">
+                <span className="font-serif text-lg text-[#5A410A] font-semibold">
                   ({selectedHub.native})
                 </span>
               </div>
-              <p className="text-xs text-[#D9CBBF] font-sans">
+              <p className="text-xs text-[#242428] font-sans font-medium">
                 {selectedHub.dialect}
               </p>
             </div>
@@ -161,8 +161,8 @@ export default function GoldenIndiaMap() {
                 onMouseEnter={() => setActiveHub(hub)}
                 className={`px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 border ${
                   selectedHub.id === hub.id
-                    ? "bg-[#D4AF6A] text-[#0C0A07] font-semibold border-[#D4AF6A] shadow-glow"
-                    : "bg-[#0C0A07] text-[#D9CBBF] border-[rgba(212,175,106,0.2)] hover:border-[#D4AF6A]"
+                    ? "bg-[#111113] text-[#F7E49A] font-semibold border-[#111113] shadow-md"
+                    : "bg-[rgba(255,255,255,0.65)] text-[#0D0D0E] border-[rgba(168,126,26,0.35)] hover:border-[#0D0D0E] font-medium"
                 }`}
               >
                 {hub.name}
@@ -315,11 +315,11 @@ export default function GoldenIndiaMap() {
                     x={hub.cx > 260 ? 12 : -12}
                     y={4}
                     textAnchor={hub.cx > 260 ? "start" : "end"}
-                    fill={isSelected ? "#FFF" : "#FBF6EE"}
-                    fontSize={isSelected ? "11" : "9.5"}
+                    fill={isSelected ? "#0D0D0E" : "#111113"}
+                    fontSize={isSelected ? "11.5" : "10"}
                     fontFamily="monospace"
-                    fontWeight={isSelected ? "700" : "500"}
-                    className="transition-colors pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                    fontWeight="700"
+                    className="transition-colors pointer-events-none drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)]"
                   >
                     {hub.name}
                   </text>

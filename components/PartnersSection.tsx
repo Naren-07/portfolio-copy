@@ -116,7 +116,7 @@ export default function PartnersSection() {
               key={partner.id}
               onMouseEnter={() => setHoveredId(partner.id)}
               onMouseLeave={() => setHoveredId(null)}
-              className="group relative rounded-2xl p-7 bg-[#140F0A]/90 border border-[rgba(212,175,106,0.2)] hover:border-[#D4AF6A] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_35px_rgba(212,175,106,0.2)] flex flex-col justify-between"
+              className="group relative rounded-2xl p-7 glass-card border border-[rgba(168,126,26,0.35)] hover:border-[#0D0D0E] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(90,65,10,0.22)] flex flex-col justify-between"
             >
               <div>
                 {/* Logo Badge & Category */}
@@ -124,33 +124,33 @@ export default function PartnersSection() {
                   <div className="shrink-0 transition-transform duration-300 group-hover:scale-110">
                     {partner.badge}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#9E8D7F] group-hover:text-[#D4AF6A] transition-colors">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#5A410A] group-hover:text-[#0D0D0E] transition-colors font-bold">
                     {partner.category}
                   </span>
                 </div>
 
                 {/* Partner Name */}
-                <h3 className="font-display text-2xl text-[#FBF6EE] font-medium group-hover:text-[#F8E3B6] transition-colors mb-2">
+                <h3 className="font-display text-2xl text-[#0D0D0E] font-bold group-hover:text-[#242428] transition-colors mb-2">
                   {partner.name}
                 </h3>
 
                 {/* Blurb */}
-                <p className="text-xs text-[#D9CBBF] leading-relaxed font-sans mb-6">
+                <p className="text-xs text-[#242428] leading-relaxed font-sans mb-6 font-medium">
                   {partner.blurb}
                 </p>
               </div>
 
               {/* Bottom active production status bar */}
-              <div className="pt-4 border-t border-[rgba(212,175,106,0.12)] flex items-center justify-between">
+              <div className="pt-4 border-t border-[rgba(168,126,26,0.25)] flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#D4AF6A]">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#0D0D0E] font-bold">
                     Active Production
                   </span>
                 </div>
                 <Link
                   href={`/contact?platform=${encodeURIComponent(partner.name)}`}
-                  className="inline-flex items-center gap-1 text-xs text-[#D4AF6A] group-hover:text-[#F8E3B6] transition-colors"
+                  className="inline-flex items-center gap-1 text-xs text-[#0D0D0E] font-bold hover:underline transition-colors"
                 >
                   <span>Connect</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

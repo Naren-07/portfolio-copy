@@ -15,7 +15,8 @@ interface StudioLightboxProps {
   onClose: () => void;
   items: GalleryItem[];
   currentIndex: number;
-  onSelectIndex: (index: number) => void;
+  onSelectIndex?: (index: number) => void;
+  onNavigate?: (index: number) => void;
 }
 
 export default function StudioLightbox({
@@ -24,15 +25,18 @@ export default function StudioLightbox({
   items,
   currentIndex,
   onSelectIndex,
+  onNavigate,
 }: StudioLightboxProps) {
+  const setIndex = onSelectIndex || onNavigate || (() => {});
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") {
-        onSelectIndex((currentIndex - 1 + items.length) % items.length);
+        setIndex((currentIndex - 1 + items.length) % items.length);
       }
       if (e.key === "ArrowRight") {
-        onSelectIndex((currentIndex + 1) % items.length);
+        setIndex((currentIndex + 1) % items.length);
       }
     };
     if (isOpen) {
@@ -43,7 +47,7 @@ export default function StudioLightbox({
       document.body.style.overflow = "unset";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, onClose, currentIndex, items.length, onSelectIndex]);
+  }, [isOpen, onClose, currentIndex, items.length, setIndex]);
 
   if (!isOpen || !items[currentIndex]) return null;
 
@@ -51,7 +55,7 @@ export default function StudioLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#0B0809]/95 backdrop-blur-xl animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#0D0D0E]/90 backdrop-blur-xl animate-in fade-in duration-200"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -59,38 +63,38 @@ export default function StudioLightbox({
     >
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-[#D9967F] text-[#FBF3EE] hover:text-[#0B0809] flex items-center justify-center transition-all border border-[rgba(232,180,160,0.3)]"
+        className="absolute top-6 right-6 z-20 w-11 h-11 rounded-full bg-[#111113] hover:bg-[#242428] text-[#F7E49A] flex items-center justify-center transition-all border border-[#DFB742]"
         aria-label="Close Lightbox"
       >
-        <X className="w-5 h-5" />
+        <X className="w-5 h-5 text-[#F7E49A]" />
       </button>
 
       {/* Prev button */}
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onSelectIndex((currentIndex - 1 + items.length) % items.length);
+          setIndex((currentIndex - 1 + items.length) % items.length);
         }}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-[#D9967F] text-[#FBF3EE] hover:text-[#0B0809] flex items-center justify-center transition-all border border-[rgba(232,180,160,0.3)] hidden sm:flex"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#111113] hover:bg-[#242428] text-[#F7E49A] flex items-center justify-center transition-all border border-[#DFB742] hidden sm:flex"
         aria-label="Previous Facility"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-6 h-6 text-[#F7E49A]" />
       </button>
 
       {/* Next button */}
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onSelectIndex((currentIndex + 1) % items.length);
+          setIndex((currentIndex + 1) % items.length);
         }}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-[#D9967F] text-[#FBF3EE] hover:text-[#0B0809] flex items-center justify-center transition-all border border-[rgba(232,180,160,0.3)] hidden sm:flex"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#111113] hover:bg-[#242428] text-[#F7E49A] flex items-center justify-center transition-all border border-[#DFB742] hidden sm:flex"
         aria-label="Next Facility"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-6 h-6 text-[#F7E49A]" />
       </button>
 
       <div
-        className="relative max-w-4xl w-full bg-[#140E10] rounded-2xl overflow-hidden border border-[rgba(217,150,127,0.3)] shadow-2xl"
+        className="relative max-w-4xl w-full bg-[#111113] rounded-3xl overflow-hidden border-2 border-[#0D0D0E] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative aspect-video w-full">
@@ -102,16 +106,16 @@ export default function StudioLightbox({
             priority
           />
         </div>
-        <div className="p-6 bg-[#1D1417]/95 border-t border-[rgba(232,180,160,0.15)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="p-6 bg-[rgba(255,248,225,0.92)] border-t border-[rgba(168,126,26,0.35)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-[#D9967F]">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#5A410A] font-bold">
               {current.role}
             </span>
-            <h3 className="font-display text-2xl text-[#FBF3EE] font-medium">
+            <h3 className="font-display text-2xl text-[#0D0D0E] font-bold">
               {current.title}
             </h3>
           </div>
-          <span className="font-mono text-xs text-[#8C7A74]">
+          <span className="font-mono text-xs text-[#0D0D0E] font-bold">
             {currentIndex + 1} / {items.length}
           </span>
         </div>

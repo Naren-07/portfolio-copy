@@ -41,10 +41,10 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoMo
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-[#D9967F] text-[#FBF3EE] hover:text-[#0B0809] flex items-center justify-center transition-all duration-200 border border-[rgba(232,180,160,0.3)]"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-[#111113] hover:bg-[#242428] text-[#F7E49A] flex items-center justify-center transition-all duration-200 border border-[#DFB742] shadow-md"
           aria-label="Close video player"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 text-[#F7E49A]" />
         </button>
 
         <iframe
