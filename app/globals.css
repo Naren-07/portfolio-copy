@@ -3,38 +3,47 @@
 @tailwind utilities;
 
 :root {
-  /* 80% Golden Luxury Canvas Tokens */
-  --gold-canvas-gradient: linear-gradient(180deg, #EBC95F 0%, #DFB742 25%, #D4A933 60%, #C49826 100%);
-  --gold-surface-base: #DFB742;
-  --gold-surface-card: rgba(255, 248, 225, 0.65);
+  /* 80% Golden Luxury Canvas Tokens (PRD Section 2.1) */
+  --gold-canvas-base: #D9B347;
+  --gold-canvas-gradient: radial-gradient(ellipse at top, #F7E49A 0%, #D8AE41 55%, #B8891B 100%);
+  --gold-surface-card: rgba(255, 248, 225, 0.55);
   --gold-surface-hover: rgba(255, 252, 235, 0.85);
-  --gold-border: rgba(168, 126, 26, 0.35);
-  --gold-border-highlight: #DFB742;
+  --gold-border: rgba(168, 126, 26, 0.40);
+  --gold-border-highlight: #D8AE41;
+  --gold-highlight: #FFF3C4;
 
-  /* 20% Obsidian Black Accent Tokens */
-  --black-solid-primary: #0D0D0E;
-  --black-solid-secondary: #242428;
-  --black-cta-fill: #111113;
+  /* 20% Obsidian Black Accent Tokens (PRD Section 2.1) */
+  --black-text-primary: #0D0D0E;
+  --black-text-secondary: #242428;
+  --black-interactive: #111113;
   --black-border-subtle: rgba(17, 17, 19, 0.18);
 
   /* Semantic UI Tokens */
-  --bg-0: #DFB742;
-  --bg-1: rgba(255, 248, 225, 0.65);
-  --bg-2: rgba(255, 248, 225, 0.85);
-  --line: rgba(168, 126, 26, 0.35);
+  --bg-0: var(--gold-canvas-base);
+  --bg-1: var(--gold-surface-card);
+  --bg-2: var(--gold-surface-hover);
+  --line: var(--gold-border);
 
   /* Gold & Champagne Accent Family */
-  --gold-100: #FFF9E0;
+  --gold-100: #FFFDF5;
   --gold-200: #FFF3C4;
   --gold-300: #F7E49A;
-  --gold-400: #DFB742;
-  --gold-500: #D8AE41;
+  --gold-400: #D8AE41;
+  --gold-500: #C49826;
   --gold-600: #B8891B;
+
+  /* Rose aliases for flexibility */
+  --rosegold-100: #FFFDF5;
+  --rosegold-200: #FFF3C4;
+  --rosegold-300: #F7E49A;
+  --rosegold-400: #D8AE41;
+  --rosegold-500: #C49826;
+  --rosegold-600: #B8891B;
 
   /* Typography Colors */
   --text-hi: #0D0D0E;
   --text-mid: #242428;
-  --text-low: #7A5C14;
+  --text-low: #6B372E;
 
   /* Header Layout Tokens for Equal Spacing */
   --nav-gap: 24px;
@@ -47,7 +56,7 @@ html {
   scroll-behavior: smooth;
   background: var(--gold-canvas-gradient);
   background-attachment: fixed;
-  color: #242428;
+  color: var(--black-text-secondary);
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
 }
@@ -55,29 +64,30 @@ html {
 body {
   overflow-x: hidden;
   background: transparent;
-  color: #242428;
+  color: var(--black-text-secondary);
   min-height: 100vh;
   position: relative;
 }
 
 /* Ambient Subtle Golden Aura */
-.golden-ambient-aura {
+.golden-ambient-aura,
+.rosegold-ambient-aura {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 243, 196, 0.35), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(216, 174, 65, 0.2), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 15% 90%, rgba(184, 137, 27, 0.15), transparent 70%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(247, 228, 154, 0.40), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(216, 174, 65, 0.25), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 15% 90%, rgba(184, 137, 27, 0.20), transparent 70%);
 }
 
-/* Custom Scrollbar in Warm Gold */
+/* Custom Scrollbar in Warm Gold & Obsidian */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #C49826;
+  background: #B8891B;
 }
 ::-webkit-scrollbar-thumb {
   background: #111113;
@@ -101,13 +111,13 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Glassmorphism Cards with Frosted Gold Tint */
+/* Glassmorphism Cards with Frosted Gold Tint (PRD Section 3.4) */
 .glass-card {
-  background: rgba(255, 248, 225, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 247, 224, 0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(168, 126, 26, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(90, 65, 10, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(90, 65, 10, 0.15);
 }
 
 .glass-card-hover {
@@ -115,21 +125,24 @@ body {
 }
 .glass-card-hover:hover {
   border-color: #0D0D0E;
-  box-shadow: 0 14px 40px -10px rgba(90, 65, 10, 0.22);
-  transform: translateY(-3px);
+  box-shadow: 0 14px 40px -10px rgba(90, 65, 10, 0.25);
+  transform: translateY(-4px);
 }
 
-/* Luxury Form Inputs */
-.gold-input {
-  background: rgba(255, 255, 255, 0.65);
+/* Luxury Form Inputs (PRD Section 3.6) */
+.gold-input,
+.rosegold-input {
+  background: rgba(255, 255, 255, 0.45);
   border: 1.5px solid var(--gold-border);
   color: #0D0D0E;
   transition: all 0.2s ease-in-out;
 }
-.gold-input::placeholder {
-  color: rgba(36, 36, 40, 0.6);
+.gold-input::placeholder,
+.rosegold-input::placeholder {
+  color: rgba(36, 36, 40, 0.55);
 }
-.gold-input:focus {
+.gold-input:focus,
+.rosegold-input:focus {
   border-color: #0D0D0E;
   outline: 2px solid rgba(17, 17, 19, 0.2);
 }
@@ -234,4 +247,3 @@ body {
 .animate-playhead {
   animation: playheadSweep 8s linear infinite;
 }
-

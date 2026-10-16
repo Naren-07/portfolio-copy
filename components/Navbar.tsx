@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 
 export default function Navbar() {
@@ -13,19 +13,19 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { label: "Work", href: "/work" },
-    { label: "Services", href: "/services" },
-    { label: "Languages", href: "/languages" },
-    { label: "Studio", href: "/studio" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { href: "/work", label: "Work" },
+    { href: "/services", label: "Services" },
+    { href: "/languages", label: "Languages" },
+    { href: "/studio", label: "Studio" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[rgba(235,201,95,0.85)] backdrop-blur-md border-b border-[rgba(17,17,19,0.18)] py-3 shadow-[0_4px_25px_rgba(90,65,10,0.12)]"
+            ? "bg-[rgba(231,183,169,0.88)] backdrop-blur-md border-b border-[rgba(17,17,19,0.18)] py-3 shadow-[0_4px_25px_rgba(110,48,38,0.12)]"
             : "bg-transparent py-5"
         }`}
       >
@@ -51,10 +51,10 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-lg tracking-[0.2em] font-bold text-[#0D0D0E] group-hover:text-[#3D2D0C] transition-colors uppercase leading-tight">
+              <span className="font-display text-lg tracking-[0.2em] font-bold text-[#0D0D0E] group-hover:text-[#6B372E] transition-colors uppercase leading-tight">
                 EchoBridge
               </span>
-              <span className="text-[9px] tracking-[0.32em] font-mono text-[#242428] uppercase leading-tight font-semibold">
+              <span className="text-[9px] tracking-[0.32em] font-mono text-[#241E1F] uppercase leading-tight font-semibold">
                 Studio
               </span>
             </div>
@@ -71,7 +71,7 @@ export default function Navbar() {
                   className={`text-xs uppercase tracking-[0.2em] transition-all relative py-1.5 select-none font-semibold ${
                     isActive
                       ? "text-[#0D0D0E]"
-                      : "text-[#242428] hover:text-[#0D0D0E]"
+                      : "text-[#241E1F] hover:text-[#0D0D0E]"
                   }`}
                 >
                   {link.label}
@@ -88,7 +88,7 @@ export default function Navbar() {
             {/* Outline Button: Join Roster */}
             <Link
               href="/join-roster"
-              className="h-[var(--btn-h)] px-[var(--btn-px)] rounded-full text-xs font-semibold tracking-wider text-[#0D0D0E] border-2 border-[#0D0D0E] bg-transparent hover:bg-[#111113] hover:text-[#F7E49A] transition-all duration-300 flex items-center justify-center whitespace-nowrap active:scale-[0.98]"
+              className="h-[var(--btn-h)] px-[var(--btn-px)] rounded-full text-xs font-semibold tracking-wider text-[#0D0D0E] border-2 border-[#0D0D0E] bg-transparent hover:bg-[#111113] hover:text-[#FCE7E1] transition-all duration-300 flex items-center justify-center whitespace-nowrap active:scale-[0.98]"
             >
               <span>Join Roster</span>
             </Link>
@@ -96,9 +96,9 @@ export default function Navbar() {
             {/* Filled Button: Start a Project */}
             <Link
               href="/contact"
-              className="h-[var(--btn-h)] px-[var(--btn-px)] rounded-full text-xs font-semibold tracking-wider text-[#F7E49A] bg-[#111113] hover:bg-[#242428] shadow-[0_4px_16px_rgba(17,17,19,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
+              className="h-[var(--btn-h)] px-[var(--btn-px)] rounded-full text-xs font-semibold tracking-wider text-[#FCE7E1] bg-[#111113] hover:bg-[#241E1F] shadow-[0_4px_16px_rgba(17,17,19,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#F7E49A]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#FCE7E1]" />
               <span>Start a Project</span>
             </Link>
           </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[rgba(235,201,95,0.98)] backdrop-blur-2xl flex flex-col justify-between p-8 pt-28 lg:hidden animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-40 bg-[rgba(231,183,169,0.98)] backdrop-blur-2xl flex flex-col justify-between p-8 pt-28 lg:hidden animate-in fade-in duration-200">
           <div className="flex flex-col gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -126,7 +126,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-2xl font-display tracking-widest uppercase transition-colors flex items-center justify-between font-semibold ${
-                    isActive ? "text-[#0D0D0E]" : "text-[#242428] hover:text-[#0D0D0E]"
+                    isActive ? "text-[#0D0D0E]" : "text-[#241E1F] hover:text-[#0D0D0E]"
                   }`}
                 >
                   <span>{link.label}</span>
@@ -147,12 +147,12 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center h-12 rounded-full text-xs font-semibold tracking-wider text-[#F7E49A] bg-[#111113] shadow-md flex items-center justify-center gap-2"
+              className="w-full text-center h-12 rounded-full text-xs font-semibold tracking-wider text-[#FCE7E1] bg-[#111113] shadow-md flex items-center justify-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-[#F7E49A]" />
+              <Sparkles className="w-4 h-4 text-[#FCE7E1]" />
               <span>Start a Project</span>
             </Link>
-            <p className="text-center font-mono text-[11px] text-[#242428] mt-2 font-medium">
+            <p className="text-center font-mono text-[11px] text-[#241E1F] mt-2 font-medium">
               echobridge.studio6@gmail.com · +91 8377086807
             </p>
           </div>

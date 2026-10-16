@@ -180,18 +180,18 @@ export default function GoldenIndiaMap() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              {/* Golden metallic gradient */}
+              {/* Rose Gold metallic gradient */}
               <linearGradient id="indiaGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FBF0D9" stopOpacity="0.9" />
-                <stop offset="35%" stopColor="#D4AF6A" stopOpacity="0.8" />
-                <stop offset="70%" stopColor="#A9762F" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#6E4A1A" stopOpacity="0.7" />
+                <stop offset="0%" stopColor="#FCE7E1" stopOpacity="0.95" />
+                <stop offset="35%" stopColor="#E8B2A4" stopOpacity="0.85" />
+                <stop offset="70%" stopColor="#CE8877" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#9C5243" stopOpacity="0.75" />
               </linearGradient>
 
               <linearGradient id="indiaLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#F8E3B6" />
-                <stop offset="50%" stopColor="#D4AF6A" />
-                <stop offset="100%" stopColor="#A9762F" />
+                <stop offset="0%" stopColor="#FFF5F2" />
+                <stop offset="50%" stopColor="#EEB8A9" />
+                <stop offset="100%" stopColor="#CE8877" />
               </linearGradient>
 
               <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">

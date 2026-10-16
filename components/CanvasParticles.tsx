@@ -34,7 +34,7 @@ export default function CanvasParticles() {
     window.addEventListener("resize", handleResize);
 
     const particleCount = 45;
-    const colors = ["rgba(17, 17, 19, 0.35)", "#111113", "#FFF9E0", "#FFF3C4", "#B8891B"];
+    const colors = ["rgba(17, 17, 19, 0.35)", "#111113", "#FFF5F2", "#FCE7E1", "#D38473", "#B86654"];
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
